@@ -1,0 +1,135 @@
+/* Base styles */
+body {
+  margin: 0;
+  width: 100%;             
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 700;
+  background: #E7E7E7;      
+  color: #333;
+  box-sizing: border-box;   
+
+
+h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  /* Gradient text */
+  background: linear-gradient(120deg, #ff6b6b, #f7d794, #ff6b6b);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;          
+  -webkit-text-fill-color: transparent;
+
+  /* Animate gradient */
+  animation: gradientBreathe 3s ease-in-out infinite;
+
+  /* Fix height */
+  height: 6rem;        
+  line-height: 6rem;   
+  overflow: hidden;    
+  white-space: nowrap; 
+  display: inline-block; /* Required for background animation on text */
+}
+
+@keyframes gradientBreathe {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Game container */
+.game-div {
+  background: #E7E7E7;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 10px 10px 20px #b6b6b6,
+              -10px -10px 20px #ffffff;
+  text-align: center;
+  width: 450px;
+}
+
+#message-el {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: #333; /* default color */
+  line-height: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+#message-el.lost-message {
+  font-size: 2rem;
+  background: linear-gradient(120deg, #18a7ce, #e19f10);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+
+  /* Text shadow for glow effect */
+  text-shadow:
+    0px 0px 10px rgba(113, 110, 110, 0.3); /* subtle white highlight */
+}
+
+#message-el.win-message {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(120deg, #FFFFFF, #E7E7E7, #D1D1D1, #B6B6B6, #282727);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes grayscaleBreathe {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Paragraphs inside */
+.game-div p {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.glow-btn {
+  margin: 10px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #E7E7E7;
+  box-shadow: 5px 5px 15px #b6b6b6,
+              -5px -5px 15px #ffffff;
+  transition: all 0.2s ease-in-out;
+
+  /* Gradient text (no animation) */
+  background: linear-gradient(120deg, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pressed state */
+.glow-btn:active {
+  box-shadow: inset 5px 5px 15px #b6b6b6,
+              inset -5px -5px 15px #ffffff;
+}
+
+/* Optional hover effect */
+.glow-btn:hover {
+  filter: brightness(1.2);
+}
+
+#cards-el {
+  line-height: 50px;
+}
