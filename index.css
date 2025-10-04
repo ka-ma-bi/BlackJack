@@ -1,41 +1,44 @@
-/* Base styles */
-body {
+/* =======================
+   Base Styles
+   ======================= */
+* {
   margin: 0;
-  width: 100%;             
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 700;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Segoe UI", sans-serif;
-  font-weight: 700;
-  background: #E7E7E7;      
+  background: #E7E7E7;
   color: #333;
-  box-sizing: border-box;
   padding: 1rem;
 }
 
+/* =======================
+   Heading (Game Title)
+   ======================= */
 h1 {
   font-size: clamp(2rem, 8vw, 5rem);
   font-weight: 900;
   text-transform: uppercase;
-
-  /* Gradient text */
   background: linear-gradient(120deg, #ff6b6b, #f7d794, #ff6b6b);
   background-size: 400% 400%;
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;          
+  color: transparent;
   -webkit-text-fill-color: transparent;
-
-  /* Animate gradient */
   animation: gradientBreathe 3s ease-in-out infinite;
-
-  /* Fix height */
-  height: clamp(3rem, 10vw, 6rem);        
-  line-height: clamp(3rem, 10vw, 6rem);   
-  overflow: hidden;    
-  white-space: nowrap; 
-  display: inline-block;
+  height: auto;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 @keyframes gradientBreathe {
@@ -44,7 +47,9 @@ h1 {
   100% { background-position: 0% 50%; }
 }
 
-/* Game container */
+/* =======================
+   Game Container
+   ======================= */
 .game-div {
   background: #E7E7E7;
   padding: 2rem;
@@ -56,13 +61,16 @@ h1 {
   max-width: 450px;
 }
 
+/* =======================
+   Message Display
+   ======================= */
 #message-el {
   font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: 700;
   text-align: center;
   transition: all 0.3s ease;
   color: #333;
-  line-height: 2.5rem;
+  line-height: 2rem;
   margin: 1rem 0 2rem 0;
 }
 
@@ -85,18 +93,26 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+/* =======================
+   Paragraphs
+   ======================= */
 .game-div p {
   margin: 10px 0;
-  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
   color: #555;
 }
 
+/* =======================
+   Buttons (Start & New Card)
+   ======================= */
 .glow-btn {
   margin: 10px auto;
-  padding: clamp(10px, 2vw, 12px) clamp(20px, 5vw, 25px);
+  padding: 0.8em 2em;
+  min-width: 140px;
+  height: 45px;
   border: none;
   border-radius: 30px;
-  font-size: clamp(0.9rem, 3vw, 1rem);
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   background: #E7E7E7;
@@ -120,25 +136,28 @@ h1 {
   filter: brightness(1.2);
 }
 
+/* =======================
+   Cards Element
+   ======================= */
 #cards-el {
   line-height: 50px;
+  margin-top: 1rem;
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
+/* =======================
+   RESPONSIVE STYLING
+   ======================= */
 @media (max-width: 768px) {
   .game-div {
     padding: 1.5rem;
     width: 95%;
   }
 
-  h1 {
-    height: auto;
-    line-height: normal;
-  }
-
   .glow-btn {
     width: 90%;
-    padding: 10px 0;
+    max-width: 220px;
+    height: 45px;
+    padding: 0.8em 2em;
   }
 }
 
@@ -159,10 +178,11 @@ h1 {
   }
 
   .game-div p {
-    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    font-size: clamp(0.85rem, 3vw, 1.1rem);
   }
 
   #cards-el {
     line-height: 35px;
   }
 }
+
