@@ -1,0 +1,193 @@
+/* =======================
+   Base Styles
+   ======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 700;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #E7E7E7;
+  color: #333;
+  padding: 1rem;
+}
+
+/* =======================
+   Heading (Game Title)
+   ======================= */
+h1 {
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, #ff6b6b, #f7d794, #ff6b6b);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradientBreathe 3s ease-in-out infinite;
+  height: auto;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes gradientBreathe {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =======================
+   Game Container
+   ======================= */
+.game-div {
+  background: #E7E7E7;
+  padding: 2rem;
+  border-radius: 30px;
+  box-shadow: 10px 10px 20px #b6b6b6,
+              -10px -10px 20px #ffffff;
+  text-align: center;
+  width: 90%;
+  max-width: 450px;
+}
+
+/* =======================
+   Message Display
+   ======================= */
+#message-el {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: #333;
+  line-height: 2rem;
+  margin: 1rem 0 2rem 0;
+}
+
+#message-el.lost-message {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  background: linear-gradient(120deg, #18a7ce, #e19f10);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  text-shadow: 0px 0px 10px rgba(113, 110, 110, 0.3);
+}
+
+#message-el.win-message {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 900;
+  background: linear-gradient(120deg, #FFFFFF, #E7E7E7, #D1D1D1, #B6B6B6, #282727);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =======================
+   Paragraphs
+   ======================= */
+.game-div p {
+  margin: 10px 0;
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
+  color: #555;
+}
+
+/* =======================
+   Buttons (Start & New Card)
+   ======================= */
+.glow-btn {
+  display: block;             /* each button on its own row */
+  margin: 10px auto;
+  padding: 0.8em 2em;
+  min-width: 140px;
+  height: 45px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #E7E7E7;
+
+  /* Asymmetric shadows for neumorphic look */
+  box-shadow: 6px 6px 12px #b6b6b6,   /* darker bottom-right shadow */
+              -4px -4px 8px #ffffff;   /* lighter top-left highlight */
+
+  transition: all 0.2s ease-in-out;
+
+  /* Gradient text */
+  background: linear-gradient(120deg, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 8px 8px 16px #b6b6b6, -5px -5px 10px #ffffff;
+  filter: brightness(1.2);
+}
+
+.glow-btn:active {
+  box-shadow: inset 6px 6px 12px #b6b6b6,
+              inset -4px -4px 8px #ffffff;
+  transform: translateY(1px);
+}
+
+/* =======================
+   Cards Element
+   ======================= */
+#cards-el {
+  line-height: 50px;
+  margin-top: 1rem;
+}
+
+/* =======================
+   RESPONSIVE STYLING
+   ======================= */
+@media (max-width: 768px) {
+  .game-div {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .glow-btn {
+    width: 90%;
+    max-width: 220px;
+    height: 45px;
+    padding: 0.8em 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: clamp(1.5rem, 12vw, 3rem);
+  }
+
+  #message-el, #message-el.lost-message, #message-el.win-message {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: 1.8rem;
+  }
+
+  .glow-btn {
+    width: 100%;
+    font-size: clamp(0.8rem, 4vw, 0.95rem);
+    padding: 8px 0;
+  }
+
+  .game-div p {
+    font-size: clamp(0.85rem, 3vw, 1.1rem);
+  }
+
+  #cards-el {
+    line-height: 35px;
+  }
+}
