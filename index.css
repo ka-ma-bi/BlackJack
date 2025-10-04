@@ -167,7 +167,7 @@ h1 {
   }
 
   #message-el, #message-el.lost-message, #message-el.win-message {
-    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-size: clamp(1rem, 4vw, 1.4rem);
     line-height: 1.8rem;
   }
 
@@ -182,7 +182,7 @@ h1 {
   }
 
   #cards-el {
-    line-height: 35px;
+    line-height: 30px;
   }
 }
 
