@@ -178,23 +178,23 @@
     .card-back::before {
       content: '';
       position: absolute;
-      inset: 4px;
-      border-radius: 7px;
-      border: 1px solid rgba(247,215,148,.25);
+      inset: 5px;
+      border-radius: 6px;
+      border: 1px solid rgba(247,215,148,.3);
+    }
+    .card-back::after {
+      content: '';
+      position: absolute;
+      inset: 9px;
+      border-radius: 4px;
+      border: 1px solid rgba(247,215,148,.15);
       background: repeating-linear-gradient(
         45deg,
         transparent,
         transparent 3px,
-        rgba(247,215,148,.07) 3px,
-        rgba(247,215,148,.07) 4px
+        rgba(247,215,148,.05) 3px,
+        rgba(247,215,148,.05) 4px
       );
-    }
-    .card-back::after {
-      content: '♦';
-      font-size: 1.6rem;
-      color: rgba(247,215,148,.3);
-      position: relative;
-      z-index: 1;
     }
 
     /* Front */
@@ -482,7 +482,7 @@
         hasBlackjack=true; isAlive=false;
         chips+=50;
         balanceEl.classList.remove('bust');
-        setMsg('Blackjack! 🎉 +$50','win');
+        setMsg('Blackjack! +$50','win');
       } else if (sum>21) {
         isAlive=false;
         chips=Math.max(0,chips-10);
