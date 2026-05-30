@@ -67,20 +67,20 @@
       text-align: center;
       transition: color .3s;
     }
-    @keyframes shimmer {
-      0%   { background-position: -200% center; }
-      100% { background-position:  200% center; }
+    @keyframes win-pop {
+      0%   { transform: scale(0.85); opacity: 0; }
+      60%  { transform: scale(1.08); opacity: 1; }
+      100% { transform: scale(1);    opacity: 1; }
     }
 
-
     #message-el.win {
-      font-size: clamp(1rem, 3.5vw, 1.2rem);
-      background: linear-gradient(90deg, #f7d794 20%, #ff6b6b 40%, #f7d794 60%, #ff6b6b 80%, #f7d794);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 2.2s linear infinite;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      font-weight: 900;
+      color: #2d9e5f;
+      -webkit-text-fill-color: #2d9e5f;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      animation: win-pop .5s cubic-bezier(.34,1.56,.64,1) both;
     }
     @keyframes bust-breathe {
       0%,100% { opacity: 1; }
@@ -482,7 +482,7 @@
         hasBlackjack=true; isAlive=false;
         chips+=50;
         balanceEl.classList.remove('bust');
-        setMsg('Blackjack!+$50','win');
+        setMsg('Blackjack! 🎉 +$50','win');
       } else if (sum>21) {
         isAlive=false;
         chips=Math.max(0,chips-10);
